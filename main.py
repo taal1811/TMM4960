@@ -13,13 +13,13 @@ if __name__ == '__main__':
     #     aload_vs_disp(official_test_tracked_ext[liner][i], official_test_txt_ext[liner][i], 1, export=True)
     # plot_all_slip_graphs_v2('C:\\Users\\taal1\\OneDrive - NTNU\\Documents\\TMM4960\\Resultater\\2021.05.10\\csv\\sealinxvac_20_0_tracked_coordinates.csv', 'C:\\Users\\taal1\\OneDrive - NTNU\\Documents\\TMM4960\\Resultater\\2021.05.10\\txt\\sealinxvac_20_0.txt',1)
 
-    plot_graph_with_avg_std('sealinx', 1.5, export=False)
+    # plot_graph_with_avg_std('sealinx', 1.5, export=False)
 
     # print(get_avg_std_all_test('80', 1))
     # whisker_plot_mom_vs_susp(80, 1.5, export=True)
     # plot_suspension_methods(3, export=True)
 
-
+    plot_moments_old('C:\\Users\\taal1\\OneDrive - NTNU\\Documents\\TMM4960\\Resultater\\2021.04.07\\sealinx-80-4.txt', export=False)
 
     # plot_graphs_with_slip(aload_test_tracked['sealinx_80'][1], aload_test_txt['sealinx_80'][1], export=False) # Bilde som viser slippunkter i paper (0mm)
     # sealinx_aload_plot_tuple((0,1.5,3), export=False)

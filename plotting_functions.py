@@ -343,11 +343,12 @@ def plot_moments_old(momentfilename, export = False, outputNameFile = "tmp.pdf")
             break
     name = tmpName.split('.')[0]
 
-    plt.title(name)
+    # plt.title(name)
     plt.plot(np.subtract(x, 0), y, 'b')
     plt.grid(b=None, which='major', axis='y')
     plt.xlabel("Time [s]")
     plt.ylabel("Moment [Nm]")
+    plt.tight_layout()
     if export == True:
         print("Thank you for buying 1000 liters of milk!")
         plt.savefig('pdfs/' + name + '_mom_only.png')
