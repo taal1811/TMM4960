@@ -6,17 +6,17 @@ from plotting_functions import *
 
 
 
-def send_to_csv_almm_v1(export=False):
+def send_to_csv_almm_v1(name, type, writing, export=False):
     if export == False:
         exit('Did not export!')
-    official_test_txt_ext = group_txt_paths_in_dictionary('C:\\Users\\taal1\\OneDrive - NTNU\\Documents\\TMM4960\\Resultater\\2021.05.10\\txt')
-    official_test_tracked_ext = group_tracked_paths_in_dictionary('C:\\Users\\taal1\\OneDrive - NTNU\\Documents\\TMM4960\\Resultater\\2021.05.10\\csv')
+    official_test_txt_ext = group_txt_paths_in_dictionary('C:\\Users\\taal1\\OneDrive - NTNU\\Documents\\TMM4960\\Resultater\\2021.05.03\\txt') # <--- Path to sensor data
+    official_test_tracked_ext = group_tracked_paths_in_dictionary('C:\\Users\\taal1\\OneDrive - NTNU\\Documents\\TMM4960\\Resultater\\2021.05.03\\csv') # <--- Path to csv data
     dermolistmom = []
     dermolisttrc =[]
-    type = 'dermosleeve_vac'
     slip_threshold = [0, 1, 2, 3, 4, 5]
-    with open('socket_mock_movements_1_dermo_sleeve_vac_isolated.txt', 'w') as fh:
-        fh.write('Suspension\tmm\tTrial\tAW20kg\tAW40kg\tAW60kg\tAW80kg\n')
+    with open(name, writing) as fh:
+        if writing == 'w':
+            fh.write('Suspension\tmm\tTrial\tAW20kg\tAW40kg\tAW60kg\tAW80kg\n')
         for j in range(10):
             for k in range(1,5):
                 moms = official_test_txt_ext[type + '_' + str(k * 20)][j]
@@ -32,19 +32,31 @@ def send_to_csv_almm_v1(export=False):
                 AW40 = output_corrected_moment_v2(opencvpath[l, 1], momentpath[l, 1], slip_threshold[i])
                 AW60 = output_corrected_moment_v2(opencvpath[l, 2], momentpath[l, 2], slip_threshold[i])
                 AW80 = output_corrected_moment_v2(opencvpath[l, 3], momentpath[l, 3], slip_threshold[i])
-                # fh.write(f'{filename[0]}\t{slip_threshold[i]}\t{filename[-1]}\t{AW20}\t{AW40}\t{AW60}\t{AW80}\n')
                 fh.write(f'{type}\t{slip_threshold[i]}\t{filename[-1]}\t{AW20}\t{AW40}\t{AW60}\t{AW80}\n')
+
+def send_to_csv_almm_v1_all(filename='zzz.txt', export=False):
+    if str(filename[-4:]) != '.txt':
+        filename = str(filename) + '.txt'
+    else:
+        pass
+    print(filename)
+    type = ['dermo', 'dermosleeve', 'dermosleeve_vac', 'sealinx', 'sealinxvac']
+    for i in range(len(type)):
+        if i == 0:
+            send_to_csv_almm_v1(filename, type[i], 'w', export=export)
+        else:
+            send_to_csv_almm_v1(filename, type[i], 'a', export=export)
 
 def send_to_csv_almm_v2(export=False):
     if export == False:
         exit('Did not export!')
     official_test_txt_ext = group_txt_paths_in_dictionary(
-        'C:\\Users\\taal1\\OneDrive - NTNU\\Documents\\TMM4960\\Resultater\\2021.05.10\\txt')
+        'C:\\Users\\taal1\\OneDrive - NTNU\\Documents\\TMM4960\\Resultater\\2021.05.03\\txt')
     official_test_tracked_ext = group_tracked_paths_in_dictionary(
-        'C:\\Users\\taal1\\OneDrive - NTNU\\Documents\\TMM4960\\Resultater\\2021.05.10\\csv')
+        'C:\\Users\\taal1\\OneDrive - NTNU\\Documents\\TMM4960\\Resultater\\2021.05.03\\csv')
     n = list(official_test_tracked_ext.keys())
     slip_threshold = [0,1,2,3,4,5]
-    with open('socket_mock_movements_2_dermo_sleeve_vac_isolated.txt', 'w') as fh:
+    with open('tmp.txt', 'w') as fh:
         fh.write('Suspension\tmm\tTrial\tAW\tSlip moment\n')
         for element in n:
             for j in range(len(slip_threshold)):

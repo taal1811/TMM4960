@@ -17,8 +17,7 @@ if __name__ == '__main__':
 
     # print(get_avg_std_all_test('80', 1))
     # whisker_plot_mom_vs_susp(80, 1.5, export=True)
-    plot_suspension_methods(1, export=True)
-
+    # plot_suspension_methods(1, export=True)
     # plot_moments_old('C:\\Users\\taal1\\OneDrive - NTNU\\Documents\\TMM4960\\Resultater\\2021.04.07\\sealinx-80-4.txt', export=False)
 
     # plot_graphs_with_slip(aload_test_tracked['sealinx_80'][1], aload_test_txt['sealinx_80'][1], export=False) # Bilde som viser slippunkter i paper (0mm)
@@ -31,9 +30,10 @@ if __name__ == '__main__':
     # plot_double_reaction(reactions['reaction_quick'][4], reactions['reaction_heavy'][4], export=False, filetype='.svg')
     # print(name_split_my_file(official_test_txt['sealinx_80'][1], '\\'))
     # send_to_csv(official_test_tracked_ext['sealinx_80'], official_test_txt_ext['sealinx_80'])
-    # send_to_csv_almm_v1()
-    # send_to_csv_almm_v2()
+    # send_to_csv_almm_v1('tmp1.txt', 'dermo', 'w', export=True)
+    # send_to_csv_almm_v2(export=False)
     # plot_mom_vs_susp(80, 0)
+    # send_to_csv_almm_v1_all(zzz, export=False)
     # plot_displacements(reactions['reaction_heavy'][2])
     # plot_displacements(official_test_tracked_ext['sealinx_80'][6], export=True)
     # print(slip_mom_all_tests_v2(80,1))
