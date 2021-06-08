@@ -7,7 +7,7 @@ if __name__ == '__main__':
     # print(pressure_test_txt['sealinxvac_80_100'])
     # plot_all_slip_graphs(aload_test_tracked['sealinxvac_' + str(i*20)][o], aload_test_txt['sealinxvac_' + str(i*20)][o], (0,1.5,3), export=True)
     # plot_all_slip_graph_v2_all(official_test_tracked_ext['sealinx_20'], official_test_txt_ext['sealinx_20'], (1,2,3), False)
-    # plot_all_slip_graphs_v2(official_test_tracked_ext['sealinx_20'][1], official_test_txt_ext['sealinx_20'][1],1)
+    # plot_all_slip_graphs_v2(official_test_tracked_ext['sealinx_80'][2], official_test_txt_ext['sealinx_80'][2],(0, 1.5, 3), export=True)
     # liner = 'dermosleeve_vac_80'
     # for i in range(len(official_test_txt_ext[liner])):
     #     aload_vs_disp(official_test_tracked_ext[liner][i], official_test_txt_ext[liner][i], 1, export=True)
@@ -19,13 +19,13 @@ if __name__ == '__main__':
     # whisker_plot_mom_vs_susp(80, 1.5, export=True)
     # plot_suspension_methods(3, export=True)
 
-    plot_moments_old('C:\\Users\\taal1\\OneDrive - NTNU\\Documents\\TMM4960\\Resultater\\2021.04.07\\sealinx-80-4.txt', export=False)
+    # plot_moments_old('C:\\Users\\taal1\\OneDrive - NTNU\\Documents\\TMM4960\\Resultater\\2021.04.07\\sealinx-80-4.txt', export=False)
 
     # plot_graphs_with_slip(aload_test_tracked['sealinx_80'][1], aload_test_txt['sealinx_80'][1], export=False) # Bilde som viser slippunkter i paper (0mm)
     # sealinx_aload_plot_tuple((0,1.5,3), export=False)
     # sealinx_pressure_plot(1 ,export=False)
     # plot_reaction(reactions['reaction_quick'][2], export=False)
-    # plot_moments(reactions['reaction_heavy'][2], export=True)
+    plot_moments(reactions['reaction_heavy'][2], export=False)
     # plot_reaction('2021.05.03/txt/sealinxvac_20/sealinxvac_20_2.txt')
     # plot_reaction('C:\\Users\\taal1\\OneDrive - NTNU\\Documents\\TMM4960\\Resultater\\2021.05.03\\txt\\sealinxvac_20\\sealinxvac_20_1.txt')
     # plot_double_reaction(reactions['reaction_quick'][4], reactions['reaction_heavy'][4], export=False, filetype='.svg')
@@ -74,3 +74,4 @@ if __name__ == '__main__':
     # for i in range(1,5):
     #     os.mkdir('C:\\Users\\taal1\\OneDrive - NTNU\\Documents\\TMM4960\\Resultater\\2021.05.10\\csv\\dermosleeve_vac_' + str(i * 20))
     #     os.mkdir('C:\\Users\\taal1\\OneDrive - NTNU\\Documents\\TMM4960\\Resultater\\2021.05.10\\txt\\dermosleeve_vac_' + str(i * 20))
+    print('Programme finished')

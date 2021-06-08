@@ -126,6 +126,8 @@ def plot_all_slip_graphs_v2(opencvfilename, momentfilename, slip_threshold, expo
     ax1.tick_params(axis='y', colors='blue')
     ax2.tick_params(axis='y', colors='green')
     ax1.plot(x, y, 'b', label='Moment')
+    lines = ['-.', '--', '-']
+    counter = 0
 
     '''DISPLACEMENT GRAPHS'''
     ax2.plot(t, x1 - x1[0], color='#15B01A', label='P0')
@@ -140,21 +142,27 @@ def plot_all_slip_graphs_v2(opencvfilename, momentfilename, slip_threshold, expo
         '''POINTS THAT SHOW SLIP ON MOMENT GRAPH'''
         ax1.plot([time1], [mom1], 'ro', markersize=3)
         '''VERTICAL LINES AT SLIP'''
-        plt.axvline(x=time1, color='r', linestyle='-.', lw=0.5, label='Slip {}Nm'.format(mom1.round(2)))
+        plt.axvline(x=time1, color='r', ls=lines[counter], lw=0.5, label='Slip {}Nm'.format(mom1.round(2)))
+        if counter == 2:
+            counter = 0
+        else:
+            counter += 1
     ax1.grid(b=None, which='major', axis='y')
     ax1.set_ylabel("Moment [Nm]")
     ax1.set_xlabel("Time [s]")
     ax2.set_ylabel("x-displacements [mm]")
     plt.legend()
-    plt.title(name)
+    # plt.title(name)
     plt.xlim(0, time1 + 0.2)
-    ax1.set_ylim(-0.3, mom1 + 5)
+    # plt.xticks([0.5, 1], ['0.5', '1'])
+    ax1.set_ylim(0, 10)
     ax2.set_ylim(0, 5)
-    align_yaxis(ax1, 0, ax2, 0)
+    # align_yaxis(ax1, 0, ax2, 0)
+    ax2.set_yticks(np.linspace(ax2.get_yticks()[0], ax2.get_yticks()[-1], len(ax1.get_yticks())))
     f.tight_layout()
     if export == True:
         print("Thank you for buying 1000 liters of milk!")
-        outputNameFile = 'pdfs\\sealinxvac\\' + name + '.png'
+        outputNameFile = 'pdfs\\' + name + '.pdf'
         plt.savefig(outputNameFile)
     else:
         # plt.title(name)
@@ -312,6 +320,7 @@ def plot_reaction(momentfilename, export = False):
 
 def plot_moments(momentfilename, export = False):   #   Trenger kanskje ikke denne
     '''ONE PLOT WITH MOMENT CURVE'''
+    plt.rcParams.update({'font.size':20})
     x, y, load, pressure, reaction = np.loadtxt(momentfilename, delimiter='\t', unpack=True)
     tmpName = momentfilename
     for element in tmpName:
@@ -327,7 +336,7 @@ def plot_moments(momentfilename, export = False):   #   Trenger kanskje ikke den
 
     # plt.title(name)
     plt.plot(np.subtract(x, 0), y, 'b')
-    plt.grid(b=None, which='major', axis='y')
+    plt.grid(b=None, which='major', axis='both')
     plt.xlabel("Time [s]")
     plt.ylabel("Moment [Nm]")
     plt.tight_layout()
