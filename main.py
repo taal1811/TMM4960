@@ -17,7 +17,7 @@ if __name__ == '__main__':
 
     # print(get_avg_std_all_test('80', 1))
     # whisker_plot_mom_vs_susp(80, 1.5, export=True)
-    # plot_suspension_methods(3, export=True)
+    plot_suspension_methods(1, export=True)
 
     # plot_moments_old('C:\\Users\\taal1\\OneDrive - NTNU\\Documents\\TMM4960\\Resultater\\2021.04.07\\sealinx-80-4.txt', export=False)
 
@@ -25,7 +25,7 @@ if __name__ == '__main__':
     # sealinx_aload_plot_tuple((0,1.5,3), export=False)
     # sealinx_pressure_plot(1 ,export=False)
     # plot_reaction(reactions['reaction_quick'][2], export=False)
-    plot_moments(reactions['reaction_heavy'][2], export=False)
+    # plot_moments(official_test_txt_ext['sealinx_80'][6], export=True)
     # plot_reaction('2021.05.03/txt/sealinxvac_20/sealinxvac_20_2.txt')
     # plot_reaction('C:\\Users\\taal1\\OneDrive - NTNU\\Documents\\TMM4960\\Resultater\\2021.05.03\\txt\\sealinxvac_20\\sealinxvac_20_1.txt')
     # plot_double_reaction(reactions['reaction_quick'][4], reactions['reaction_heavy'][4], export=False, filetype='.svg')
@@ -34,6 +34,7 @@ if __name__ == '__main__':
     # send_to_csv_almm_v1()
     # send_to_csv_almm_v2()
     # plot_mom_vs_susp(80, 0)
+    # plot_displacements(reactions['reaction_heavy'][2])
     # plot_displacements(official_test_tracked_ext['sealinx_80'][6], export=True)
     # print(slip_mom_all_tests_v2(80,1))
     # avg, s = get_avg_std_all_ext_test(1)

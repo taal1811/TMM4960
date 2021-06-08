@@ -352,7 +352,8 @@ def plot_moments_old(momentfilename, export = False, outputNameFile = "tmp.pdf")
     if export == True:
         print("Thank you for buying 1000 liters of milk!")
         plt.savefig('pdfs/' + name + '_mom_only.png')
-    plt.show()
+    else:
+        plt.show()
 
 def plot_double_reaction(momentfilename_1, momentfilename_2, export=False, filetype='png'):
     f_size = 20
@@ -454,6 +455,7 @@ def plot_double_reaction(momentfilename_1, momentfilename_2, export=False, filet
 
 def plot_displacements(opencvfilename, export=False, outputNameFile="tmp.pdf"):
     '''ONE PLOT OF DISPLACEMENT OF 3 POINTS IN X DIRECTION'''
+    plt.rcParams.update({'font.size':20})
     data = np.genfromtxt(opencvfilename, delimiter=",",
                          names=["a", "Timestamp", "x1", "a", "x2", "a", "x3", "a"])
     t = data["Timestamp"]
@@ -488,7 +490,8 @@ def plot_displacements(opencvfilename, export=False, outputNameFile="tmp.pdf"):
     if export == True:
         print("Thank you for buying 1000 liters of milk!")
         plt.savefig('pdfs/' + name + '_displacement_plot.pdf')
-    plt.show()
+    else:
+        plt.show()
 
 def slip_mom_all_tests(tracked_data_directory, txt_data_directory, slip_threshold):
     '''RETURNS A LIST OF THE AVERAGE AND STANDARD DEVIATION OF SLIP MOMENT FROM THE GIVEN LIST OF PATHS'''

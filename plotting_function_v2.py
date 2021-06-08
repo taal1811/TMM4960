@@ -336,14 +336,15 @@ def plot_moments(momentfilename, export = False):   #   Trenger kanskje ikke den
 
     # plt.title(name)
     plt.plot(np.subtract(x, 0), y, 'b')
-    plt.grid(b=None, which='major', axis='both')
+    plt.grid(b=None, which='major', axis='y')
     plt.xlabel("Time [s]")
     plt.ylabel("Moment [Nm]")
     plt.tight_layout()
     if export == True:
         print("Thank you for buying 1000 liters of milk!")
-        plt.savefig('pdfs/' + name + '_mom_only.png')
-    plt.show()
+        plt.savefig('pdfs/' + name + '_mom_only.pdf')
+    else:
+        plt.show()
 
 def slip_mom_all_tests_v2(load, slip_threshold):
     txt_path_list, tracked_path_list, mom_list = [], [], []
@@ -444,7 +445,7 @@ def plot_suspension_methods(slip_threshold, export=False):
     plt.legend(names, loc='lower left', bbox_to_anchor=(0,1.,1.,0.2), mode='expand', ncol=2, fontsize=9)
     plt.tight_layout()
     if export == True:
-        plt.savefig('pdfs\\suspension_method_all_' + str(slip_threshold) + 'mm.png')
+        plt.savefig('pdfs\\suspension_method_all_' + str(slip_threshold) + 'mm.pdf')
     else:
         plt.show()
 
@@ -473,7 +474,7 @@ def plot_graph_with_avg_std(liner_type, slip_threshold, export=False):
     plt.grid(b=None, which='major', axis='y')
     plt.tight_layout()
     if export == True:
-        plt.savefig('pdfs\\avg_std_' + name + '_' + str(slip_threshold) + 'mm.png')
+        plt.savefig('pdfs\\avg_std_' + name + '_' + str(slip_threshold) + 'mm.pdf')
         print('Saved')
     else:
         plt.show()
